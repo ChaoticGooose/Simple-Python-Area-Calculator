@@ -71,7 +71,6 @@ def calculateArea(shape):
         perimeter = 2 * (width + height)
         Area.configure(text="Area: " + str(area))
         Perimeter.configure(text="Perimeter: " + str(perimeter))
-
     elif shape == "triangle":
         base = float(triangle_baseInput.get())
         height = float(triangle_heightInput.get())
@@ -98,7 +97,7 @@ def calculateArea(shape):
 if __name__ == '__main__':
     # Sets up window
     root.title("Area Calculator")
-    root.geometry("270x210")
+    root.geometry("270x235")
     root.resizable(False, False)
 
     radio_frame = ttk.Frame(root)
