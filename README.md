@@ -1,2 +1,2 @@
 ## Simple Python Area Calculator (GUI-Test)
-GUI test for main branch
+GUI Python program to find area of a Rectangle, Circle, Triangle, Trapezium
