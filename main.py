@@ -8,11 +8,6 @@ root = tk.Tk()
 
 
 def rectangleView():  # shows all widgets in view
-    # Hides the other views
-    triangle_input.grid_forget()
-    trapezium_input.grid_forget()
-    circle_input.grid_forget()
-
     # grid the widgets
     rectangle_heightLbl.grid(row=0, column=0)
     rectangle_widthLbl.grid(row=1, column=0)
@@ -20,13 +15,15 @@ def rectangleView():  # shows all widgets in view
     rectangle_heightInput.grid(row=1, column=1)
     rectangle_input.grid(column=1, row=2)
 
-
-def triangleView():  # shows all widgets in view
-    # hides the other views
-    rectangle_input.grid_forget()
+    # Hides the other views
+    triangle_input.grid_forget()
     trapezium_input.grid_forget()
     circle_input.grid_forget()
 
+
+
+
+def triangleView():  # shows all widgets in view
     # grid the widgets
     triangle_baselbl.grid(row=0, column=0)
     triangle_heightlbl.grid(row=1, column=0)
@@ -34,13 +31,15 @@ def triangleView():  # shows all widgets in view
     triangle_heightInput.grid(row=1, column=1)
     triangle_input.grid(column=1, row=2)
 
-
-def trapeziumView():  # shows all widgets in view
     # hides the other views
     rectangle_input.grid_forget()
-    triangle_input.grid_forget()
+    trapezium_input.grid_forget()
     circle_input.grid_forget()
 
+
+
+
+def trapeziumView():  # shows all widgets in view
     # grid the widgets
     trapezium_toplbl.grid(row=0, column=0)
     trapezium_bottomlbl.grid(row=1, column=0)
@@ -50,17 +49,22 @@ def trapeziumView():  # shows all widgets in view
     trapezium_heightInput.grid(row=2, column=1)
     trapezium_input.grid(column=1, row=2)
 
-
-def circle():  # shows all widgets in view
     # hides the other views
     rectangle_input.grid_forget()
     triangle_input.grid_forget()
-    trapezium_input.grid_forget()
+    circle_input.grid_forget()
 
+
+def circle():  # shows all widgets in view
     # grid the widgets
     circle_radiuslbl.grid(row=0, column=0)
     circle_radiusInput.grid(row=0, column=1)
     circle_input.grid(column=1, row=2)
+
+    # hides the other views
+    rectangle_input.grid_forget()
+    triangle_input.grid_forget()
+    trapezium_input.grid_forget()
 
 
 def calculateArea(shape):
