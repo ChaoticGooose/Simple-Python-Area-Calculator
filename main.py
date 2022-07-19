@@ -1,6 +1,4 @@
 from math import pi
-from os import name, system
-from time import sleep
 import tkinter as tk
 import tkinter.ttk as ttk
 
