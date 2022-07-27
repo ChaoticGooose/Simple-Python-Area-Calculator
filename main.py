@@ -1,6 +1,7 @@
 from math import pi
 import tkinter as tk
 import tkinter.ttk as ttk
+import subprocess
 
 root = tk.Tk()
 
@@ -19,8 +20,6 @@ def rectangleView():  # shows all widgets in view
     circle_input.grid_forget()
 
 
-
-
 def triangleView():  # shows all widgets in view
     # grid the widgets
     triangle_baselbl.grid(row=0, column=0)
@@ -33,8 +32,6 @@ def triangleView():  # shows all widgets in view
     rectangle_input.grid_forget()
     trapezium_input.grid_forget()
     circle_input.grid_forget()
-
-
 
 
 def trapeziumView():  # shows all widgets in view
@@ -66,6 +63,7 @@ def circle():  # shows all widgets in view
 
 
 def calculateArea(shape):
+    global perimeter, area
     if shape == "rectangle":
         width = float(rectangle_widthInput.get())
         height = float(rectangle_heightInput.get())
@@ -94,6 +92,16 @@ def calculateArea(shape):
         perimeter = 2 * pi * radius
         Area.configure(text="Area: " + str(area))
         Perimeter.configure(text="Perimeter: " + str(perimeter))
+    # intialize JSON file
+    f = open("data.json", "a")
+    f.write("Area: " + str(area) + "\n")
+    f.write("Perimeter: " + str(perimeter) + "\n")
+    f.close()
+
+
+def historyView():
+    subprocess.run(["open", "data.json"])
+    return
 
 
 if __name__ == '__main__':
@@ -176,6 +184,10 @@ if __name__ == '__main__':
     # calculate button
     calculate = ttk.Button(root, text="Calculate", command=lambda: calculateArea(shape.get()))
     calculate.grid(column=1, row=3)
+
+    # History View Button
+    history = ttk.Button(root, text="History", command=historyView)
+    history.grid(column=1, row=6)
 
     # Creates output fields
     Area = ttk.Label(output, text="Area: ")
